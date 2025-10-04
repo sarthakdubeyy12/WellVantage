@@ -39,6 +39,18 @@ src/
   index.css
 ```
 
+## Screenshots
+
+Below are sample screenshots of the application:
+
+![Lead Management](public/image1.png)
+
+![Dashboard](public/image2.png)
+
+![User Profile](public/image3.png)
+
+![Analytics](public/image%204.png)
+
 ## How to Run
 1. **Install dependencies**:
    ```sh
