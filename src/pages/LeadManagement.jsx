@@ -462,6 +462,15 @@ function StatusForm() {
 // Leads Table Component
 function LeadsTable() {
     const [leads, setLeads] = useState([]);
+    const [showAddModal, setShowAddModal] = useState(false);
+    const [newLead, setNewLead] = useState({
+        name: '',
+        interest: 'Hot',
+        assignedTo: '',
+        lastInteraction: '',
+        followUp: 'Need Follow Up',
+    });
+
     useEffect(() => {
         // Simulate fetching from a mock API
         setTimeout(() => {
@@ -479,6 +488,18 @@ function LeadsTable() {
             ]);
         }, 800); // Simulate network delay
     }, []);
+
+    const handleAddLead = () => {
+        setLeads([newLead, ...leads]);
+        setShowAddModal(false);
+        setNewLead({
+            name: '',
+            interest: 'Hot',
+            assignedTo: '',
+            lastInteraction: '',
+            followUp: 'Need Follow Up',
+        });
+    };
 
     const InterestBadge = ({ level }) => {
         const levelStyles = {
@@ -512,6 +533,75 @@ function LeadsTable() {
 
     return (
         <div className="bg-white rounded-lg shadow-sm">
+            <button
+                className="mb-4 bg-[#28A745] text-white font-semibold rounded-lg px-6 py-2 hover:bg-opacity-90"
+                onClick={() => setShowAddModal(true)}
+            >
+                + Add New Lead
+            </button>
+            {showAddModal && (
+                <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
+                    <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+                        <h2 className="text-xl font-bold mb-4">Add New Lead</h2>
+                        <div className="space-y-4">
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                value={newLead.name}
+                                onChange={e => setNewLead({ ...newLead, name: e.target.value })}
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                            />
+                            <select
+                                value={newLead.interest}
+                                onChange={e => setNewLead({ ...newLead, interest: e.target.value })}
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                            >
+                                <option value="Hot">Hot</option>
+                                <option value="Warm">Warm</option>
+                                <option value="Cold">Cold</option>
+                            </select>
+                            <input
+                                type="text"
+                                placeholder="Assigned To"
+                                value={newLead.assignedTo}
+                                onChange={e => setNewLead({ ...newLead, assignedTo: e.target.value })}
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                            />
+                            <input
+                                type="text"
+                                placeholder="Last Interaction"
+                                value={newLead.lastInteraction}
+                                onChange={e => setNewLead({ ...newLead, lastInteraction: e.target.value })}
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                            />
+                            <select
+                                value={newLead.followUp}
+                                onChange={e => setNewLead({ ...newLead, followUp: e.target.value })}
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                            >
+                                <option value="Need Follow Up">Need Follow Up</option>
+                                <option value="Contacted">Contacted</option>
+                                <option value="Converted">Converted</option>
+                            </select>
+                        </div>
+                        <div className="flex justify-end gap-4 mt-6">
+                            <button
+                                className="px-4 py-2 rounded bg-gray-200 text-gray-700"
+                                onClick={() => setShowAddModal(false)}
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                className="px-4 py-2 rounded bg-[#28A745] text-white font-semibold"
+                                onClick={handleAddLead}
+                                disabled={!newLead.name || !newLead.assignedTo || !newLead.lastInteraction}
+                            >
+                                Add Lead
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
             <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
