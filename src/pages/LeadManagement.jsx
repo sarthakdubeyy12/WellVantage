@@ -450,12 +450,12 @@ function StatusForm() {
 
             <div className="mt-12 flex justify-center max-w-5xl">
               <button
-                className="bg-[#28A745] text-white font-semibold rounded-lg hover:bg-opacity-90 w-[393px] h-[55px]"
-              >
+                className="bg-[#28A745] text-white font-semibold rounded-[7px] w-[393px] h-[55px] px-[72px] py-[15px] flex items-center justify-center gap-[10px] hover:bg-[#28A745]/90 transition-opacity duration-200"
+                >
                 Update
-              </button>
+                </button>
             </div>
-        </div>
+         </div>
     );
 }
 
