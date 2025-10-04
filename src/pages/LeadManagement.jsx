@@ -45,6 +45,8 @@ const AddLeadView = () => {
     </div>
   );
 
+//three consecutive buttons for Basic, Preferences, Status
+
   return (
     <>
       <div className="border-b border-gray-300">
@@ -213,9 +215,9 @@ const AddLeadView = () => {
   );
 };
 
-// -------------------------
+
 // Main Lead Management Page
-// -------------------------
+
 export default function LeadManagement() {
   const [showAddLead, setShowAddLead] = useState(false);
   const [activeTab, setActiveTab] = useState("active");
@@ -359,7 +361,7 @@ export default function LeadManagement() {
   );
 }
 
-// Reusable SelectField component for dropdowns
+// Reusable component for dropdowns
 const SelectField = ({ label, options = [], placeholder }) => (
     <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
