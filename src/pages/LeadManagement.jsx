@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 
 // Reusable Filter Button
@@ -459,6 +459,25 @@ function StatusForm() {
 
 // Leads Table Component
 function LeadsTable() {
+    const [leads, setLeads] = useState([]);
+    useEffect(() => {
+        // Simulate fetching from a mock API
+        setTimeout(() => {
+            setLeads([
+                { name: 'Jeo Yadav', interest: 'Hot', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
+                { name: 'Jeo Yadav', interest: 'Cold', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
+                { name: 'Jeo Yadav', interest: 'Warm', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
+                { name: 'Jeo Yadav', interest: 'Hot', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
+                { name: 'Jeo Yadav', interest: 'Cold', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
+                { name: 'Jeo Yadav', interest: 'Warm', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
+                { name: 'Jeo Yadav', interest: 'Hot', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
+                { name: 'Jeo Yadav', interest: 'Cold', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
+                { name: 'Jeo Yadav', interest: 'Warm', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
+                { name: 'Jeo Yadav', interest: 'Hot', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
+            ]);
+        }, 800); // Simulate network delay
+    }, []);
+
     const InterestBadge = ({ level }) => {
         const levelStyles = {
             hot: 'bg-red-100 text-red-700',
@@ -489,19 +508,6 @@ function LeadsTable() {
         </div>
     );
 
-    const mockLeads = [
-        { name: 'Jeo Yadav', interest: 'Hot', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
-        { name: 'Jeo Yadav', interest: 'Cold', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
-        { name: 'Jeo Yadav', interest: 'Warm', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
-        { name: 'Jeo Yadav', interest: 'Hot', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
-        { name: 'Jeo Yadav', interest: 'Cold', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
-        { name: 'Jeo Yadav', interest: 'Warm', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
-        { name: 'Jeo Yadav', interest: 'Hot', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
-        { name: 'Jeo Yadav', interest: 'Cold', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
-        { name: 'Jeo Yadav', interest: 'Warm', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
-        { name: 'Jeo Yadav', interest: 'Hot', assignedTo: 'Ratna Pathak', lastInteraction: '26 July 2025', followUp: 'Need Follow Up' },
-    ];
-
     return (
         <div className="bg-white rounded-lg shadow-sm">
             <div className="overflow-x-auto">
@@ -516,7 +522,7 @@ function LeadsTable() {
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                        {mockLeads.map((lead, index) => (
+                        {leads.map((lead, index) => (
                             <tr key={index} className="hover:bg-gray-50">
                                 <td className="px-6 py-4 whitespace-nowrap">
                                     <div className="flex items-center">

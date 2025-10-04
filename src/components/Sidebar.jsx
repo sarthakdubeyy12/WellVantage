@@ -33,7 +33,7 @@ export default function Sidebar() {
         </div>
 
         {/* Menu Items */}
-        <nav className="flex flex-col space-y-5 px-6">
+        <nav className="flex flex-col space-y-6 px-4">
           <NavLink to="/dashboard" className={linkClasses}>
             <FaTachometerAlt /> Dashboard
           </NavLink>
@@ -72,7 +72,7 @@ export default function Sidebar() {
         {/* Profile */}
         <div className="flex items-center gap-3 bg-green-200 rounded-xl px-4 py-2">
           <img
-            src="/profile.png" 
+            src="/container.svg" 
             alt="Profile"
             className="w-10 h-10 rounded-full"
           />

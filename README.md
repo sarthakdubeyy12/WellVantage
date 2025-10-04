@@ -1,16 +1,66 @@
-# React + Vite
+# WellVantage Lead Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+WellVantage is a modern web application designed for managing gym leads, members, and business operations. The project demonstrates a full-featured dashboard for gym management, including lead tracking, member management, attendance, revenue, expenses, and workout management. The UI is built for clarity, speed, and ease of use.
 
-Currently, two official plugins are available:
+## Features
+- **Sidebar Navigation**: Quick access to all major modules (Dashboard, Lead Management, Member Management, Attendance, Revenue, Expenses, Workout, etc.)
+- **Lead Management**: Add, view, and filter leads. Tabs for Basic Details, Preferences, and Status.
+- **Mock API Integration**: Lead data is fetched asynchronously to simulate real API calls.
+- **Reusable Components**: Includes custom InputField, SelectField, DateField, and ActionIcons for consistent UI.
+- **Status & Preferences Forms**: Capture detailed information about leads, including activity level, wellness goals, medical concerns, and custom notes.
+- **Leads Table**: Paginated, sortable table with action icons for WhatsApp, view, and more.
+- **Responsive Design**: Built with Tailwind CSS for a clean, responsive layout.
+- **Profile & Logout**: Sidebar includes user profile and logout button.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **React** (with hooks)
+- **Vite** (for fast development and build)
+- **React Router** (for navigation)
+- **React Icons** (for sidebar and action icons)
+- **Tailwind CSS** (for styling)
+- **Mock API** (using useEffect and useState)
 
-## React Compiler
+## Folder Structure
+```
+public/
+  logo.png
+  container.svg
+  Vector.png
+src/
+  components/
+    Sidebar.jsx
+  pages/
+    LeadManagement.jsx
+    Home.jsx
+  App.jsx
+  main.jsx
+  App.css
+  index.css
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How to Run
+1. **Install dependencies**:
+   ```sh
+   npm install
+   ```
+2. **Start the development server**:
+   ```sh
+   npm run dev
+   ```
+3. **Open in browser**: Navigate to `http://localhost:5173` (or as shown in terminal)
 
-## Expanding the ESLint configuration
+## Usage
+- Use the sidebar to navigate between modules.
+- In Lead Management, add new leads, view details, and update status/preferences.
+- All lead data is loaded from a mock API (simulated with setTimeout).
+- The UI is fully responsive and works on desktop and mobile.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Customization
+- To add more modules, create new pages/components and add them to the sidebar.
+- To connect to a real API, replace the mock API logic in `LeadsTable` with actual fetch calls.
+
+## Author & License
+Developed by Sarthak Dubey for company assignment, October 2025.
+
+MIT License.
